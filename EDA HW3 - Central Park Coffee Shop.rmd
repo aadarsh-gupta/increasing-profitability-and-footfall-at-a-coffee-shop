@@ -1,7 +1,6 @@
 ---
-title: 'EDA HW3 - Central Park Coffee Shop (Customer Analytics)'
-author: 'Group 6: Nitin Wahie, Aadarsh Gupta, Chia-Hsuan Chou, Patrick Hoban, Rekha
-  Mohandass, Kexin Liang'
+title: Central Park Coffee Shop (Customer Analytics)'
+author: Aadarsh Gupta
 date: "11/1/2019"
 output:
   pdf_document: 
