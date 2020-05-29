@@ -1,15 +1,10 @@
----
-title: Central Park Coffee Shop (Customer Analytics)'
-author: Aadarsh Gupta
-date: "11/1/2019"
-output:
-  pdf_document: 
-    df_print: paged
-    latex_engine: xelatex
-toc: true
----
 
-# Business Problem
+# Central Park Coffee Shop
+<b> author: Aadarsh Gupta </b>
+<b> date: "11/1/2019" </b>
+
+
+# Business Case
 ## Situation
 Central Perk, a boutique coffee in New York City, has collected sales data, but has not explored the data set up to this point. They want to explore the transaction data to understand current customer buying patterns. The customers can be devided into 2 groups: members and non-members (guests), and Central Perk believes that they have a loyal membership base, and is looking forward to generating more revenue from it. Central Perk is currently operating with a 20% gross margin.
 
