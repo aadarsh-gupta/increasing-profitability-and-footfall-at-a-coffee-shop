@@ -5,15 +5,15 @@ Date: <b> 11/1/2019 </b> <br>
   
   
    
-# Business Case
-## Situation
+## Business Case
+### Situation
 Central Perk, a boutique coffee in New York City, has collected sales data, but has not explored the data set up to this point. They want to explore the transaction data to understand current customer buying patterns. The customers can be devided into 2 groups: members and non-members (guests), and Central Perk believes that they have a loyal membership base, and is looking forward to generating more revenue from it. Central Perk is currently operating with a 20% gross margin.
 
-## Complication
+### Complication
 Management at Central Perk haven't explore the data, so they have little knowledge about real customer behaviours and items demand. However, they hold the belif that they currently don't need additional customers for their business. Therefore, they need to leverage the current transction data to help them to capture the customer purchase patterns and value of membership to generate revenue from in the future.
 
 
-## Key Question
+### Key Question
 
 Are customers at Central Perk really loyal and give sufficient support to the business?
 
@@ -27,13 +27,13 @@ What marketing strategies/ campaigns Central Perk and implement to drive sales i
 
 * What extra services to offer?
 
-# Our Approach
+## Our Approach
 In our analysis, we first explored that data from both membership and item perspective to understand the general purchase pattern. Then, we dived deeper in these 2 directions. For the member, we used RFM analysis to evaluate their value. For items, we ran market basket analysis to understand how items are purchased together across times.
 
-# Data Preparation
+## Data Preparation
 
-## Data Overview
-### Data structure
+### Data Overview
+#### Data structure
 We have 26 months worth of transactions, starting from July 2016 up until August 2018. The transactions include various categories of products, including Coffee, Tea, Beer, Food items as well as extras provided on these items. 
 
 #### Variable explanation
@@ -65,7 +65,7 @@ We have 26 months worth of transactions, starting from July 2016 up until August
 * Customer.ID: if there's ID, we assume it's a member, or else it's a guest
 
 
-## Data Cleaning and Transformation
+### Data Cleaning and Transformation
 Data set was fairly clean from the start. Although, we did find a few issues that needed attending. Our first assumption is around customer ID. We assume that those transactions with a customer id included are members with some form of membership identification and all others with NA in that column are converted to guest. 
 
 We assume those with a status of NA are not regular customers who would be part of a membership rewards program. Where there was no customer ID available we used time of order to define the transaction. 
@@ -161,9 +161,9 @@ data1 <- data1 %>% group_by(order) %>% mutate(Gross_Sales_Total = sum(Gross.Sale
 ```
 
 
-# Analysis
-## 1. Overall Purchase Pattern
-### Transactions by Month
+## Analysis
+### 1. Overall Purchase Pattern
+#### Transactions by Month
 
 ```{r, eval=FALSE}
 data1_by_month <- data1 %>% group_by(month = floor_date(Date, "month")) %>%
@@ -293,7 +293,7 @@ Looking at the total sales by different categories, we can find that coffee, ext
   
 
 
-## 2. Membership at Central Perk
+### 2. Membership at Central Perk
 
 We tried to validate the belief of the owners at Central Perk regarding membership. As our first step, we compared the sales produced by the members against the sales contributed by the non-members.
 
@@ -407,7 +407,7 @@ Although more instances of discounts were provided to members, the total value o
 Before suggesting any actions to improve customer loyalty, it is imperative to understand the value of Central Perk's current customer base elaborately. For this we evaluate customers using the RFM method to calculate their value.
 
 
-## 3. Within members, is there any difference?
+### 3. Within members, is there any difference?
 
 We used RFM model to analyze customer value. It consists of three metrics :
 
@@ -1057,12 +1057,12 @@ inspect(rules_soy_lift)
 
 
 
-# Recommendations
+## Recommendations
 
 We will propose strategies in 2 directions: promoting member loyalty and the increse the average sales by operational change in opending hours and menu.
 
-## Memberships
-### Members Exclusive Free/Discount Extras in the Afternoons
+### Memberships
+#### Members Exclusive Free/Discount Extras in the Afternoons
 
 In previous analysis, we found out members of Central Perk churn quickly after signing up. However, we are not sure if they no longer buy coffee from Central Perk or they just don't make use of their membership since they are not incentivized to do so. If they are actually members that continue to make purchases, Central Perk loses the opportunity to track more customer data and plan accordingly.
 
@@ -1073,7 +1073,7 @@ Morevoer, we expect that the "hidden members" will utilize their membership in o
 The possible draw back for this strategy is that it will alienate the customers who purchase coffee during lunch break. However, we observe that people usually purchase food with coffee during afternoon, so shifing these customers to afternoon could even increase the average transaction value.
 
 
-## Benefits for loyal members and incentives to keep customers coming back
+#### Benefits for loyal members and incentives to keep customers coming back
 
 The idea of incentivizing your regulars with perks and benefits to encourage more repeat visits and upgrades is not unique and has proven effective for nearly every other successful chain in the industry.
 
@@ -1089,9 +1089,9 @@ https://joe.coffee/
 "Gregulars" at Gregory's coffee shop in NYC earn \$5 for every $50 they spend at the shop.
 https://www.gregoryscoffee.com/gregulars
 
-## Operational Changes
+### Operational Changes
 
-### Introduce More Seasonal Drinks
+#### Introduce More Seasonal Drinks
 Unless there is some specific hipster marketing around simplicity that the shop is expressly known for in the NYC marketplace. And even if that branding is present outside our dataset, it still makes sense for the shop to be introducing more seasonal offerings. In the first three months open, 5% of sales per month were all lemonade, but the offering disappeared in the fall of 2016 and never made a return. This represents a lost sales opportunity that could be easily recouped. 
 
 The additional showings of increased sales of ice as an extra and of other beverages similar to lemonade, like perrier and san peligrino suggest that there is an existing demand for more cool and refreshing beverage offerings starting in the spring. In addition to an increase in demand for cold beverages in the fall, as we look at drinks like hot chocolate, we see that demand switch direction again each fall as consumers move toward hot beverage offerings once again.
@@ -1102,7 +1102,7 @@ This aligns with what we already know about the industry at large as well where 
 
 
 
-## Open 30 minutes early at 6:30 AM
+#### Open 30 minutes early at 6:30 AM
 If we assume that the current upward trend in average sales from 7 am to 8 am is an outgrowth of a potential trend of would be consumers from 6 am to 7, the potential average sales lost in that first half hour is around \$43. We can estimate the same amount by looking at the average sales in the first 10 minutes of the morning and even assuming a conservative rate of sales where the previous half hour accounts for an equivalent of what is made in the first 10 min of the 7 am hour on average, we estimate an additional \$42 in revenue. This conservative estimate justifies at least the $8 it would cost to pay an employee for the extra 30 minutes of work that day, based on the currrent NYC min wage. Thus at a most conservative estimate testing opening earlier by half an hour for 3 months suggests that the store will not lose money in the test period.
 
 Additionally we find that the average purchase price in the first 10 minutes is much lower than the average for the rest of the day.  Average purchase in the morning in the first few minutes after opening is currently \$3.70. Profit of which is $0.75. Average purchase price for the total day is \$5.23.  A profit of \$1.05. This suggests that those first customers were perhaps waiting for the doors to open, or that the line is too long and they are now in a rush to get to work or catch a train and don't have time to wait for the more expensive drink they really wanted originally. Thus we expect that by opening 30 min earlier we will see an increase in transactions and an increase in amount per transaction.
