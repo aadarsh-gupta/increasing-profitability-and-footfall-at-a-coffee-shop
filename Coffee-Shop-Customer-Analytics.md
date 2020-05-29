@@ -1,5 +1,4 @@
 
-# Central Park Coffee Shop
 Author <b>Aadarsh Gupta </b> <br>
 Date: <b> 11/1/2019 </b> <br>
   
